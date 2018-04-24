@@ -6,6 +6,7 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { FormsModule } from '@angular/forms';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 // Temporal
 import { IncrementadorComponent } from '../componets/incrementador/incrementador.component';
@@ -23,6 +24,7 @@ import { ChartsModule } from 'ng2-charts';
         Graficas1Component,
         IncrementadorComponent,
         GraficoDonaComponent,
+        AccountSettingsComponent,
     ],
     exports: [
         PagesComponent,

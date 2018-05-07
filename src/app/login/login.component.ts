@@ -53,9 +53,9 @@ export class LoginComponent implements OnInit {
       // let profile = googleUser.getBasicProfile();
       let token = googleUser.getAuthResponse().id_token;
 
-      // Por un error que se le daba al profe (a mi no por eso no lo modifique), cambio la linea por:
-      // this._usuarioService.loginGoogle( token ).subscribe( () => window.location.href = '#/dashboard' );
-      this._usuarioService.loginGoogle( token ).subscribe( () => this.router.navigate(['/dashboard']) );
+      // Por un error que se le daba al profe, cambio la linea por:
+      this._usuarioService.loginGoogle( token ).subscribe( () => window.location.href = '#/dashboard' );
+      // this._usuarioService.loginGoogle( token ).subscribe( () => this.router.navigate(['/dashboard']) );
 
       console.log(token);
     });

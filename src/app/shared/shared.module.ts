@@ -6,12 +6,16 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+// Pipe module
+import { PipesModule } from '../pipes/pipes.module';
+
 
 
 @NgModule({
     imports: [
         RouterModule,
-        CommonModule
+        CommonModule,
+        PipesModule
     ],
     declarations: [
         HeaderComponent,

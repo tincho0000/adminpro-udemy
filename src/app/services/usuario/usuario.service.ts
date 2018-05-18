@@ -7,8 +7,12 @@ import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/throw';
+
 import { templateJitUrl } from '@angular/compiler';
 import { Observable } from 'rxjs/Observable';
+import swal from 'sweetalert';
+
 
 @Injectable()
 export class UsuarioService {
@@ -24,6 +28,22 @@ export class UsuarioService {
   ) {
     // console.log('Servicio de usuario listo');
     this.cargarStorage();
+  }
+
+  renuevaToken() {
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token;
+
+    return this.http.get( url ).map( (resp: any) => {
+      this.token = resp.token;
+      localStorage.setItem('token', this.token);
+      console.log('Token renovado');
+      return true;
+    }).catch( err => {
+      this.router.navigate(['/login']);
+      swal('No se pudo renovar token', 'No fue posible renovar token', 'error');
+      return Observable.throw( err );
+    });
   }
 
   estaLogueado() {
